@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login MédicaSur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> <!-- Importación de la fuente -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('C:\\Users\\sofia\\Documents\\redes\\MAQUETADO.jpg'); /* Ruta escapada */
+            background-size: cover;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
+        }
+        .login-container {
+            background-color: #a4c8f1; /* Nuevo color de fondo */
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .login-container img {
+            max-width: 150px; /* Tamaño del logo */
+            margin-bottom: 10px;
+        }
+        .login-container h1 {
+            color: #ffffff; /* Blanco para el texto "MédicaSur" */
+            margin: 0;
+            padding-bottom: 10px;
+            font-weight: 700; /* Negritas */
+        }
+        .login-container h2 {
+            color: #ffffff; /* Blanco para el texto "INICIAR SESIÓN" */
+            margin: 10px 0;
+            font-weight: 700; /* Negritas */
+        }
+        .login-container label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            color: #062554; /* Color específico para las etiquetas */
+            font-weight: 700; /* Negritas */
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-weight: 400; /* Fuente regular para los inputs */
+        }
+        .login-container button {
+            background-color: #0056b3; /* Azul oscuro para el botón */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            font-weight: 700; /* Negritas */
+        }
+        .login-container button:hover {
+            background-color: #004494; /* Un poco más oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="C:\\Users\\sofia\\Documents\\redes\\logo.png" alt="MédicaSur"> <!-- Ruta de tu logo -->
+        <h2>INICIAR SESIÓN</h2>
+        <form id="loginForm">
+            <label for="username">USUARIO:</label>
+            <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
+            <label for="password">CONTRASEÑA:</label>
+            <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+            <button type="submit">INICIAR</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            // Aquí puedes agregar la lógica para manejar el inicio de sesión
+            console.log('Usuario:', username);
+            console.log('Contraseña:', password);
+            alert('Inicio de sesión exitoso');
+            // Redirigir a la página del menú principal
+            window.location.href = 'menu.html';
+        });
+    </script>
+</body>
+</html>
+
+
+

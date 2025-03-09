@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Citas Médicas</title>
+    <title>Elegir Médico</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -78,11 +78,34 @@
             color: #007bff;
             margin-bottom: 20px;
         }
+        .doctor-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .doctor {
+            border: 3px solid transparent;
+            padding: 10px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+            text-align: center;
+        }
+        .doctor.selected {
+            border-color: #007bff;
+        }
+        .doctor img {
+            max-width: 150px;
+            height: auto;
+        }
+        .doctor p {
+            margin: 10px 0 0;
+            font-weight: bold;
+            color: #007bff;
+        }
         .button-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+            justify-content: center;
         }
         .button {
             padding: 15px 30px;
@@ -96,15 +119,6 @@
             text-decoration: none;
             font-weight: 700;
         }
-        .button.selected {
-            background-color: #0056b3;
-        }
-        .shift-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
     </style>
 </head>
 <body>
@@ -114,7 +128,7 @@
         <div class="menu">
             <ul id="menuList">
                 <li><a href="pagina1.html">Datos personales</a></li>
-                <li><a href="turno.html">Citas</a></li>
+                <li><a href="citas.html">Citas</a></li>
                 <li><a href="medicos.html">Medicos</a></li>
                 <li><a href="pagina4.html">Salud</a></li>
                 <li><a href="pagina5.html">Información</a></li>
@@ -123,38 +137,49 @@
         </div>
     </div>
     <div class="content">
-        <h2>CITAS MÉDICAS</h2>
-        <div class="shift-buttons">
-            <button class="button" onclick="selectShift(this, 'matutino')">Matutino</button>
-            <button class="button" onclick="selectShift(this, 'vespertino')">Vespertino</button>
+        <h2>ELIGIR MÉDICO</h2>
+        <div class="doctor-container">
+            <div class="doctor" onclick="selectDoctor(this)">
+                <img src="C:\\Users\\sofia\\Documents\\redes\\doctor1.jpeg" alt="Dr. Beatriz Vega">
+                <p>Dr. Beatriz Vega</p>
+            </div>
+            <div class="doctor" onclick="selectDoctor(this)">
+                <img src="C:\\Users\\sofia\\Documents\\redes\\doctor2.jpeg" alt="Dr. Alejandro Silva">
+                <p>Dr. Alejandro Silva</p>
+            </div>
+            <div class="doctor" onclick="selectDoctor(this)">
+                <img src="C:\\Users\\sofia\\Documents\\redes\\doctor3.jpeg" alt="Dr. Carolina Ríos">
+                <p>Dr. Carolina Ríos</p>
+            </div>
         </div>
         <div class="button-container">
             <button class="button" onclick="continuar()">Continuar</button>
         </div>
     </div>
     <script>
-        let selectedShift = '';
+        let selectedDoctor = null;
 
         function toggleMenu() {
             const menuList = document.getElementById('menuList');
             menuList.classList.toggle('active');
         }
 
-        function selectShift(button, shift) {
-            const buttons = document.querySelectorAll('.shift-buttons .button');
-            buttons.forEach(btn => btn.classList.remove('selected'));
-            button.classList.add('selected');
-            selectedShift = shift;
-            console.log('Turno seleccionado: ' + shift);
+        function selectDoctor(element) {
+            const doctors = document.querySelectorAll('.doctor');
+            doctors.forEach(doc => doc.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedDoctor = element.querySelector('p').innerText;
+            console.log('Doctor seleccionado: ' + selectedDoctor);
         }
 
         function continuar() {
-            if (selectedShift) {
-                window.location.href = 'elegir_medico.html';
+            if (selectedDoctor) {
+                window.location.href = 'elegirfecha.html'; // Redirige a la interfaz para elegir la fecha
             } else {
-                alert('Por favor, selecciona un turno antes de continuar.');
+                alert('Por favor, selecciona un médico antes de continuar.');
             }
         }
     </script>
 </body>
 </html>
+

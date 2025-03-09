@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Citas Médicas</title>
+    <title>Agenda de Citas Médicas</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -65,25 +66,31 @@
             top: 10px;
             right: 20px;
         }
-        .content {
+        .container {
             flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            width: 100%;
             padding: 20px;
             background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .content h2 {
+        h2 {
+            text-align: center;
             color: #007bff;
             margin-bottom: 20px;
         }
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+        #calendar {
+            width: 80%;
+            margin: 0 auto;
         }
+        #selectedDate {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            font-weight: 600;
+        }
+        /* Estilos para el botón */
         .button {
             padding: 15px 30px;
             font-size: 18px;
@@ -96,14 +103,8 @@
             text-decoration: none;
             font-weight: 700;
         }
-        .button.selected {
+        .button:hover {
             background-color: #0056b3;
-        }
-        .shift-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 40px;
         }
     </style>
 </head>
@@ -122,39 +123,57 @@
             </ul>
         </div>
     </div>
-    <div class="content">
-        <h2>CITAS MÉDICAS</h2>
-        <div class="shift-buttons">
-            <button class="button" onclick="selectShift(this, 'matutino')">Matutino</button>
-            <button class="button" onclick="selectShift(this, 'vespertino')">Vespertino</button>
-        </div>
-        <div class="button-container">
-            <button class="button" onclick="continuar()">Continuar</button>
-        </div>
+    <div class="container">
+        <h2>Agenda de Citas Médicas</h2>
+        <div id="calendar"></div>
+        <div id="selectedDate">Selecciona una fecha para tu cita</div>
+        <button class="button" id="continueButton" style="display: none;">Continuar</button>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
     <script>
-        let selectedShift = '';
-
         function toggleMenu() {
             const menuList = document.getElementById('menuList');
             menuList.classList.toggle('active');
         }
 
-        function selectShift(button, shift) {
-            const buttons = document.querySelectorAll('.shift-buttons .button');
-            buttons.forEach(btn => btn.classList.remove('selected'));
-            button.classList.add('selected');
-            selectedShift = shift;
-            console.log('Turno seleccionado: ' + shift);
-        }
+        $(document).ready(function() {
+            var selectedDate = null;
 
-        function continuar() {
-            if (selectedShift) {
-                window.location.href = 'elegir_medico.html';
-            } else {
-                alert('Por favor, selecciona un turno antes de continuar.');
-            }
-        }
+            // Configuración del calendario
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                dayClick: function(date, jsEvent, view) {
+                    // Cambiar el color de la fecha seleccionada
+                    if (selectedDate) {
+                        selectedDate.css('background-color', ''); // Resetear el color de la fecha previa
+                    }
+                    selectedDate = $(jsEvent.target);
+                    selectedDate.css('background-color', '#4CAF50'); // Resaltar la fecha seleccionada
+
+                    // Mostrar la fecha seleccionada en el mensaje
+                    $('#selectedDate').text('Fecha seleccionada: ' + date.format('MMMM D, YYYY'));
+
+                    // Mostrar el botón "Continuar"
+                    $('#continueButton').show();
+                }
+            });
+
+            // Redirigir cuando el usuario haga clic en el botón "Continuar"
+            $('#continueButton').click(function() {
+                if (selectedDate) {
+                    var selectedDateStr = selectedDate.data('date');
+                    // Redirigir a una nueva página con la fecha seleccionada
+                    window.location.href = 'agendarcita.html?fecha=' + selectedDateStr;
+                }
+            });
+        });
     </script>
 </body>
 </html>
+

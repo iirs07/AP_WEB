@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Citas Médicas</title>
+    <title>Agenda de Citas Médicas</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -65,27 +65,28 @@
             top: 10px;
             right: 20px;
         }
-        .content {
+        .container {
             flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            width: 100%;
             padding: 20px;
             background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .content h2 {
+        h2 {
+            text-align: center;
             color: #007bff;
             margin-bottom: 20px;
         }
-        .button-container {
+        .hour-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
             gap: 20px;
+            margin-bottom: 40px;
         }
-        .button {
-            padding: 15px 30px;
+        .hour-button {
+            padding: 10px 20px;
             font-size: 18px;
             color: white;
             background-color: #007bff;
@@ -93,17 +94,29 @@
             border-radius: 5px;
             cursor: pointer;
             text-align: center;
-            text-decoration: none;
             font-weight: 700;
+            transition: background-color 0.3s ease;
         }
-        .button.selected {
+        .hour-button:hover {
             background-color: #0056b3;
         }
-        .shift-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 40px;
+        #selectedHour {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            font-weight: 600;
+        }
+        #confirmButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #confirmButton:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -122,37 +135,42 @@
             </ul>
         </div>
     </div>
-    <div class="content">
-        <h2>CITAS MÉDICAS</h2>
-        <div class="shift-buttons">
-            <button class="button" onclick="selectShift(this, 'matutino')">Matutino</button>
-            <button class="button" onclick="selectShift(this, 'vespertino')">Vespertino</button>
+    <div class="container">
+        <h2>Selecciona tu horario</h2>
+        <div class="hour-container">
+            <button class="hour-button" onclick="selectHour('09:00')">09:00</button>
+            <button class="hour-button" onclick="selectHour('10:00')">10:00</button>
+            <button class="hour-button" onclick="selectHour('11:00')">11:00</button>
+            <button class="hour-button" onclick="selectHour('12:00')">12:00</button>
+            <button class="hour-button" onclick="selectHour('14:00')">14:00</button>
+            <button class="hour-button" onclick="selectHour('15:00')">15:00</button>
+            <button class="hour-button" onclick="selectHour('16:00')">16:00</button>
+            <button class="hour-button" onclick="selectHour('17:00')">17:00</button>
         </div>
-        <div class="button-container">
-            <button class="button" onclick="continuar()">Continuar</button>
-        </div>
+        <div id="selectedHour">Selecciona una hora para tu cita</div>
+        <button id="confirmButton" style="display: none;" onclick="confirmAppointment()">Agendar</button>
     </div>
     <script>
-        let selectedShift = '';
-
         function toggleMenu() {
             const menuList = document.getElementById('menuList');
             menuList.classList.toggle('active');
         }
 
-        function selectShift(button, shift) {
-            const buttons = document.querySelectorAll('.shift-buttons .button');
-            buttons.forEach(btn => btn.classList.remove('selected'));
-            button.classList.add('selected');
-            selectedShift = shift;
-            console.log('Turno seleccionado: ' + shift);
+        let selectedHour = null;
+
+        function selectHour(hour) {
+            selectedHour = hour;
+            document.getElementById('selectedHour').textContent = 'Hora seleccionada: ' + hour;
+            document.getElementById('confirmButton').style.display = 'inline-block';
         }
 
-        function continuar() {
-            if (selectedShift) {
-                window.location.href = 'elegir_medico.html';
+        function confirmAppointment() {
+            if (selectedHour) {
+                alert('Cita agendada para las ' + selectedHour);
+                // Aquí podrías redirigir a otra página si es necesario
+                // window.location.href = 'confirmacion.html';
             } else {
-                alert('Por favor, selecciona un turno antes de continuar.');
+                alert('Por favor, selecciona una hora antes de continuar.');
             }
         }
     </script>

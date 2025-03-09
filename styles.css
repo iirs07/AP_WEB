@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #a4c8f1;
+    padding: 10px 20px;
+}
+
+header img {
+    height: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;  /* Color modificado a blanco para los enlaces */
+    text-decoration: none;
+}
+
+.hero {
+    background-image: url('C:\\Users\\sofia\\Documents\\redes\\MAQUETADO.jpg');
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Negro con 50% de opacidad */
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+.servicios {
+    padding: 40px 20px;
+    text-align: center; /* Centrar el contenedor de servicios */
+    background-color: #a4c8f1; /* Color de fondo aplicado a toda la sección */
+}
+
+.servicio {
+    width: 200px; /* Definir un tamaño fijo para los contenedores de servicio */
+    text-align: center;
+    display: inline-block; /* Asegurar que los contenedores de servicio estén alineados horizontalmente */
+    vertical-align: top; /* Alinear los contenedores de servicio en la parte superior */
+    margin: 10px; /* Añadir un margen entre los contenedores de servicio */
+}
+
+.servicio img {
+    width: 150px; /* Modificar el tamaño de la imagen */
+    height: 150px; /* Modificar el tamaño de la imagen */
+    object-fit: cover;
+    border-radius: 50%; /* Forma circular */
+}
+
+.razones {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #1b56a8; /* Color de fondo aplicado a toda la sección */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.razones-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.razones-image {
+    flex: 1;
+    background-image: url('C:\\Users\\sofia\\Documents\\redes\\doctores.png');
+    background-size: contain; /* Ajustar la imagen de fondo para que se contenga dentro del contenedor */
+    background-repeat: no-repeat; /* Evitar la repetición de la imagen */
+    background-position: center; /* Centrar la imagen de fondo */
+    height: 200px; /* Ajustar la altura de la imagen */
+    margin: 0; /* Eliminar márgenes */
+    padding: 0; /* Eliminar relleno */
+}
+
+.razones-text {
+    flex: 1;
+    text-align: right; /* Colocar el texto a la derecha */
+    padding: 20px;
+    color: white; /* Cambiar el color del texto a blanco para mejor legibilidad */
+}
+
+.rights-reserved {
+    background-color: rgba(0, 0, 0, 0.5); /* Color negro con transparencia */
+    padding: 10px 0;
+    text-align: center;
+    color: white; /* Color blanco para el texto */
+}
+
+footer {
+    background-color: #a4c8f1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}

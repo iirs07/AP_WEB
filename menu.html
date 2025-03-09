@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> <!-- Importación de la fuente -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
+            background-color: #f0f0f0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-color: #a4c8f1;
+            padding: 10px 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .menu-icon {
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        .menu {
+            display: flex;
+            align-items: center;
+        }
+        .menu ul {
+            display: none;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #a4c8f1;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 25%; /* Ajustar el ancho del menú */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .menu ul.active {
+            display: flex;
+            flex-direction: column;
+        }
+        .menu li {
+            padding: 15px; /* Ajustar el padding de los elementos de la lista */
+            text-align: center;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700; /* Negritas */
+            font-size: 18px; /* Ajustar el tamaño de la fuente */
+        }
+        .navbar img {
+            max-width: 150px; /* Tamaño del logo */
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span> <!-- Ícono del menú hamburguesa -->
+        <img src="C:\\Users\\sofia\\Documents\\redes\\logo.png" alt="MédicaSur"> <!-- Ruta de tu logo -->
+        <div class="menu">
+            <ul id="menuList">
+                <li><a href="pagina1.html">Datos personales</a></li>
+                <li><a href="turno.html">Citas</a></li>
+                <li><a href="medicos.html">Medicos</a></li>
+                <li><a href="pagina4.html">Salud</a></li>
+                <li><a href="pagina5.html">Información</a></li>
+                <li><a href="logout.html">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="menu-container">
+        <h2>Menú Principal</h2>
+        <p>Bienvenido al sistema MédicaSur. Selecciona una opción del menú para continuar.</p>
+    </div>
+    <script>
+        function toggleMenu() {
+            const menuList = document.getElementById('menuList');
+            menuList.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
+
+
