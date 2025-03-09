@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enfermedades</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Enfermedades.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <img src="C:/Users/Itzel/Documents/redes/redes/logo.png" alt="MédicaSur">
+        <div class="menu">
+            <ul id="menuList">
+                <li><a href="datospersonales.html">Datos personales</a></li>
+                <li><a href="citas.html">Citas</a></li>
+                <li><a href="medicos.html">Medicos</a></li>
+                <li><a href="salud.html">Salud</a></li>
+                <li><a href="pagina5.html">Información</a></li>
+                <li><a href="logout.html">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <h2>ENFERMEDADES</h2>
+        
+        <div class="labels-container">
+            <!-- Sección 1 -->
+            <div class="left-labels">
+                <label class="enfermedades-title">1. Enfermedades Crónicas</label>
+                <ul>
+                    <li>Diabetes (Tipo 1 y Tipo 2)</li>
+                    <li>Hipertensión arterial</li>
+                    <li>Insuficiencia renal crónica</li>
+                    <li>Enfermedad pulmonar obstructiva crónica (EPOC)</li>
+                    <li>Asma</li>
+                    <li>Enfermedad cardíaca (infarto, insuficiencia cardíaca, arritmias)</li>
+                    <li>Osteoporosis</li>
+                    <li>Artritis reumatoide</li>
+                </ul>
+                <label class="enfermedades-title">2. Enfermedades Infecciosas</label>
+                <ul>
+                    <li>Influenza</li>
+                    <li>Tuberculosis</li>
+                    <li>Neumonía</li>
+                    <li>VIH/SIDA</li>
+                    <li>Hepatitis (A, B, C)</li>
+                    <li>Dengue</li>
+                    <li>COVID-19</li>
+                    <li>Salmonelosis</li>
+                </ul>
+                <label class="enfermedades-title">3. Enfermedades del Sistema Nervioso</label>
+                <ul>
+                    <li>Epilepsia</li>
+                    <li>Parkinson</li>
+                    <li>Alzheimer</li>
+                    <li>Esclerosis múltiple</li>
+                    <li>Migraña crónica</li>
+                </ul>
+            </div>
+
+            <!-- Sección 2 -->
+            <div class="right-labels">
+                <label class="enfermedades-title">4. Enfermedades Autoinmunes</label>
+                <ul>
+                    <li>Lupus</li>
+                    <li>Esclerosis múltiple</li>
+                    <li>Tiroiditis de Hashimoto</li>
+                    <li>Enfermedad de Crohn</li>
+                </ul>
+                <label class="enfermedades-title">5. Enfermedades Metabólicas</label>
+                <ul>
+                    <li>Hipercolesterolemia (colesterol alto)</li>
+                    <li>Hipotiroidismo / Hipertiroidismo</li>
+                    <li>Síndrome metabólico</li>
+                </ul>
+                <label class="enfermedades-title">6. Enfermedades Gastrointestinales</label>
+                <ul>
+                    <li>Gastritis</li>
+                    <li>Reflujo gastroesofágico (ERGE)</li>
+                    <li>Síndrome del intestino irritable</li>
+                    <li>Colitis ulcerosa</li>
+                </ul>
+                <label class="enfermedades-title">7. Enfermedades de la Piel</label>
+                <ul>
+                    <li>Psoriasis</li>
+                    <li>Dermatitis atópica</li>
+                    <li>Acné severo</li>
+                </ul>
+                <label class="enfermedades-title">8. Enfermedades Mentales</label>
+                <ul>
+                    <li>Depresión</li>
+                    <li>Ansiedad</li>
+                    <li>Trastorno bipolar</li>
+                    <li>Esquizofrenia</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menuList = document.getElementById('menuList');
+            menuList.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

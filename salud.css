@@ -1,0 +1,177 @@
+/* Asegura que el html y body ocupen toda la altura de la ventana */
+html, body {
+    height: 100%;
+    margin: 0; 
+    padding: 0; 
+}
+
+/* Fondo de la página */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%; 
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-image: url('file:///C:/Users/Itzel/Documents/redes/redes/MAQUETADO.jpg'); 
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    position: relative;
+}
+/* Barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #a4c8f1;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 60px;
+    box-sizing: border-box;
+}
+
+.menu-icon {
+    font-size: 35px;
+    color: #1c0080;
+    cursor: pointer;
+    margin-left: 35px;
+}
+
+/* Menú de navegación */
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu ul {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #a4c8f1;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 20%;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+.menu ul.active {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.menu li {
+    padding: 15px;
+    text-align: center;
+    background-color: #a4c8f1;
+}
+
+.menu a {
+    color: rgb(18, 3, 151);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.navbar img {
+    max-width: 140px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+/* Contenedor de los campos */
+.field-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.field-container label {
+    color: black;  
+    background-color: rgba(218, 208, 208, 0.315); 
+    font-size: 20px; 
+    margin-right: 20px;
+    padding: 10px; 
+    border-radius: 5px; 
+}
+
+.static-text {
+    font-size: 20px;  
+    color: black;  
+    background-color: rgba(218, 208, 208, 0.315); 
+    padding: 10px;
+    border-radius: 10px;
+    width: auto; 
+    box-sizing: border-box;
+    white-space: normal; 
+    word-wrap: break-word; 
+}
+
+/* Estilo para el título */
+h2 {
+    font-size: 30px; 
+    margin-top: 90px; 
+    color: #031758; 
+    text-align: center; 
+}
+
+/* Estilo de la imagen */
+.image-end {
+    margin-top: 20px;  
+    width: 150px;  
+    height: auto;  
+    display: block;  
+    margin-left: auto;
+    margin-right: auto;  
+}
+
+/* Estilo para los botones de Salud */
+.salud-buttons {
+    text-align: center;
+    margin-top: 50px;  
+}
+
+.salud-buttons h3 {
+    font-size: 24px;
+    color: #051c69; 
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; 
+    gap: 50px; 
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #031758; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 300px;  
+}
+
+button:hover {
+    background-color: #1c0080; 
+}

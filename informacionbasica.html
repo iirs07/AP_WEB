@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Básica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="informacionbasica.css">
+</head>
+<body>
+    <div class="navbar">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <img src="C:/Users/Itzel/Documents/redes/redes/logo.png" alt="MédicaSur">
+        <div class="menu">
+            <ul id="menuList">
+                <li><a href="datospersonales.html">Datos personales</a></li>
+                <li><a href="citas.html">Citas</a></li>
+                <li><a href="medicos.html">Médicos</a></li>
+                <li><a href="salud.html">Salud</a></li>
+                <li><a href="pagina5.html">Información</a></li>
+                <li><a href="logout.html">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <h2>INFORMACIÓN BÁSICA</h2>
+        <div class="rectangle">
+            <!-- Información del paciente -->
+            <div class="field-container">
+                <label for="Estatura">Estatura:</label>
+                <span id="Estatura" class="static-label">163 cm</span>
+            </div>
+            <div class="field-container">
+                <label for="Peso">Peso:</label>
+                <span id="Peso" class="static-label">55 kg</span>
+            </div>
+            <div class="field-container">
+                <label for="Cintura">Cintura:</label>
+                <span id="Cintura" class="static-label">80 cm</span>
+            </div>
+            <div class="field-container">
+                <label for="Sexo">Sexo:</label>
+                <span id="Sexo" class="static-label">Femenino</span>
+            </div>
+            <div class="field-container">
+                <label for="Grupo sanguíneo">Grupo sanguíneo:</label>
+                <span id="GrupoSanguineo" class="static-label">O+</span>
+            </div>
+            <div class="field-container">
+                <label for="CalidadSueno">Calidad del sueño:</label>
+                <span id="CalidadSueno" class="static-label">Insomnio</span>
+            </div>
+            <div class="field-container">
+                <label for="HabitosAlimenticios">Hábitos alimenticios:</label>
+                <span id="HabitosAlimenticios" class="static-label">Dieta equilibrada</span>
+            </div>
+            <div class="field-container">
+                <label for="Diabetes">Diabetes:</label>
+                <span id="Diabetes" class="static-label">No</span>
+            </div>
+            <div class="field-container">
+                <label for="Hipertension">Hipertensión:</label>
+                <span id="Hipertension" class="static-label">No</span>
+            </div>
+            <div class="field-container">
+                <label for="Alergias">Alergias:</label>
+                <span id="Alergias" class="static-label">Ninguna</span>
+            </div>
+            <div class="field-container">
+                <label for="ConsumoAlcohol">Consumo de alcohol:</label>
+                <span id="ConsumoAlcohol" class="static-label">No</span>
+            </div>
+            <div class="field-container">
+                <label for="ConsumoTabaco">Consumo de tabaco:</label>
+                <span id="ConsumoTabaco" class="static-label">No</span>
+            </div>
+        </div>  
+    <script>
+        function toggleMenu() {
+            const menuList = document.getElementById('menuList');
+            menuList.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
